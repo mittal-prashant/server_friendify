@@ -19,7 +19,6 @@ mongoose
 
 const app = makeApp.makeapp();
 
-
 const server = app.listen(process.env.PORT, () =>
   console.log(`Server started on ${process.env.PORT}`)
 );
@@ -69,11 +68,11 @@ io.on("connection", (socket) => {
     // console.log(sendUserSocket);
     // console.log(data.to);
     // if (sendUserSocket) {
-      socket.broadcast.emit("msg-recieve", {
-        message: data.message,
-        from: data.from,
-        to: data.to,
-      });
+    socket.broadcast.emit("msg-recieve", {
+      message: data.message,
+      from: data.from,
+      to: data.to,
+    });
     // } else {
     //   if (!offlineMessages[data.to]) {
     //     offlineMessages[data.to] = [];
@@ -274,4 +273,3 @@ io.on("connection", (socket) => {
 //     }
 //   });
 // });
-
